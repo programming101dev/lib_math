@@ -2,8 +2,10 @@
 #include <p101_env/env.h>
 #include <p101_error/error.h>
 #include <p101_math/math.h>
+#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 static int failures;
 
@@ -38,7 +40,7 @@ static int fail_next_call(const struct p101_env *env, const char *call_name, voi
 static void test_p101_j0(struct p101_env *env, struct p101_error *err)
 {
 #ifdef __linux__
-    static const int errors[] = {EIO};
+    static const int errors[] = {ERANGE};
 #elif defined(__APPLE__)
     static const int errors[] = {EIO};
 #elif defined(__FreeBSD__)
@@ -65,7 +67,7 @@ static void test_p101_j0(struct p101_env *env, struct p101_error *err)
 static void test_p101_j1(struct p101_env *env, struct p101_error *err)
 {
 #ifdef __linux__
-    static const int errors[] = {EIO};
+    static const int errors[] = {ERANGE};
 #elif defined(__APPLE__)
     static const int errors[] = {EIO};
 #elif defined(__FreeBSD__)
@@ -92,7 +94,7 @@ static void test_p101_j1(struct p101_env *env, struct p101_error *err)
 static void test_p101_jn(struct p101_env *env, struct p101_error *err)
 {
 #ifdef __linux__
-    static const int errors[] = {EIO};
+    static const int errors[] = {ERANGE};
 #elif defined(__APPLE__)
     static const int errors[] = {EIO};
 #elif defined(__FreeBSD__)
@@ -119,7 +121,7 @@ static void test_p101_jn(struct p101_env *env, struct p101_error *err)
 static void test_p101_y0(struct p101_env *env, struct p101_error *err)
 {
 #ifdef __linux__
-    static const int errors[] = {EIO};
+    static const int errors[] = {EDOM, ERANGE};
 #elif defined(__APPLE__)
     static const int errors[] = {EIO};
 #elif defined(__FreeBSD__)
@@ -146,7 +148,7 @@ static void test_p101_y0(struct p101_env *env, struct p101_error *err)
 static void test_p101_y1(struct p101_env *env, struct p101_error *err)
 {
 #ifdef __linux__
-    static const int errors[] = {EIO};
+    static const int errors[] = {EDOM, ERANGE};
 #elif defined(__APPLE__)
     static const int errors[] = {EIO};
 #elif defined(__FreeBSD__)
@@ -173,7 +175,7 @@ static void test_p101_y1(struct p101_env *env, struct p101_error *err)
 static void test_p101_yn(struct p101_env *env, struct p101_error *err)
 {
 #ifdef __linux__
-    static const int errors[] = {EIO};
+    static const int errors[] = {EDOM, ERANGE};
 #elif defined(__APPLE__)
     static const int errors[] = {EIO};
 #elif defined(__FreeBSD__)
