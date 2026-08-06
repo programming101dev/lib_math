@@ -19,7 +19,7 @@ set(BSD_STANDARD_FLAGS -D_BSD_SOURCE -D__BSD_VISIBLE)
 
 set(LIBRARY_TARGETS p101_math)
 set(p101_math_SOURCES
-        src/posix_xsi/math.c
+        src/math.c
 )
 set(p101_math_HEADERS
         include/p101_math/math.h

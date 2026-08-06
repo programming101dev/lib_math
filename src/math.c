@@ -79,19 +79,24 @@ p101_single_exit_:
 
 static int prepare_bessel_call(const struct p101_env *env, struct p101_error *err)
 {
-    errno = 0;
-    return p101_feclearexcept(env, err, FE_ALL_EXCEPT);
+    int result;
+
+    errno  = 0;
+    result = p101_feclearexcept(env, err, FE_ALL_EXCEPT);
+    return result;
 }
 
 double p101_j0(const struct p101_env *env, struct p101_error *err, double x)
 {
     double p101_single_result_;
+    int    prepare_result;
     int    error_code;
     double ret_val;
 
     P101_TRACE(env);
     P101_WRAPPER_FAULT_RETURN(env, err, ret_val, p101_nan(env, ""));
-    if(prepare_bessel_call(env, err) != 0)
+    prepare_result = prepare_bessel_call(env, err);
+    if(prepare_result != 0)
     {
         P101_WRAPPER_DONE(env);
         p101_single_result_ = p101_nan(env, "");
@@ -116,12 +121,14 @@ p101_single_exit_:
 double p101_j1(const struct p101_env *env, struct p101_error *err, double x)
 {
     double p101_single_result_;
+    int    prepare_result;
     int    error_code;
     double ret_val;
 
     P101_TRACE(env);
     P101_WRAPPER_FAULT_RETURN(env, err, ret_val, p101_nan(env, ""));
-    if(prepare_bessel_call(env, err) != 0)
+    prepare_result = prepare_bessel_call(env, err);
+    if(prepare_result != 0)
     {
         P101_WRAPPER_DONE(env);
         p101_single_result_ = p101_nan(env, "");
@@ -146,12 +153,14 @@ p101_single_exit_:
 double p101_jn(const struct p101_env *env, struct p101_error *err, int n, double x)
 {
     double p101_single_result_;
+    int    prepare_result;
     int    error_code;
     double ret_val;
 
     P101_TRACE(env);
     P101_WRAPPER_FAULT_RETURN(env, err, ret_val, p101_nan(env, ""));
-    if(prepare_bessel_call(env, err) != 0)
+    prepare_result = prepare_bessel_call(env, err);
+    if(prepare_result != 0)
     {
         P101_WRAPPER_DONE(env);
         p101_single_result_ = p101_nan(env, "");
@@ -176,12 +185,14 @@ p101_single_exit_:
 double p101_y0(const struct p101_env *env, struct p101_error *err, double x)
 {
     double p101_single_result_;
+    int    prepare_result;
     int    error_code;
     double ret_val;
 
     P101_TRACE(env);
     P101_WRAPPER_FAULT_RETURN(env, err, ret_val, p101_nan(env, ""));
-    if(prepare_bessel_call(env, err) != 0)
+    prepare_result = prepare_bessel_call(env, err);
+    if(prepare_result != 0)
     {
         P101_WRAPPER_DONE(env);
         p101_single_result_ = p101_nan(env, "");
@@ -206,12 +217,14 @@ p101_single_exit_:
 double p101_y1(const struct p101_env *env, struct p101_error *err, double x)
 {
     double p101_single_result_;
+    int    prepare_result;
     int    error_code;
     double ret_val;
 
     P101_TRACE(env);
     P101_WRAPPER_FAULT_RETURN(env, err, ret_val, p101_nan(env, ""));
-    if(prepare_bessel_call(env, err) != 0)
+    prepare_result = prepare_bessel_call(env, err);
+    if(prepare_result != 0)
     {
         P101_WRAPPER_DONE(env);
         p101_single_result_ = p101_nan(env, "");
@@ -236,12 +249,14 @@ p101_single_exit_:
 double p101_yn(const struct p101_env *env, struct p101_error *err, int n, double x)
 {
     double p101_single_result_;
+    int    prepare_result;
     int    error_code;
     double ret_val;
 
     P101_TRACE(env);
     P101_WRAPPER_FAULT_RETURN(env, err, ret_val, p101_nan(env, ""));
-    if(prepare_bessel_call(env, err) != 0)
+    prepare_result = prepare_bessel_call(env, err);
+    if(prepare_result != 0)
     {
         P101_WRAPPER_DONE(env);
         p101_single_result_ = p101_nan(env, "");
