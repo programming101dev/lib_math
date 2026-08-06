@@ -22,7 +22,7 @@ set(p101_math_SOURCES
         src/math.c
 )
 set(p101_math_HEADERS
-        include/p101_math/math.h
+        include/p101_math/p101_math.h
 )
 set(p101_math_LINK_LIBRARIES
         p101_error

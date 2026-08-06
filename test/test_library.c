@@ -1,6 +1,6 @@
 #include <p101_env/env.h>
 #include <p101_error/error.h>
-#include <p101_math/math.h>
+#include <p101_math/p101_math.h>
 #include <stdlib.h>
 
 int main(void)
