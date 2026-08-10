@@ -97,8 +97,16 @@ static int prepare_bessel_call(const struct p101_env *env, struct p101_error *er
 {
     int result;
 
-    errno  = 0;
     result = p101_feclearexcept(env, err, FE_ALL_EXCEPT);
+    if(result == 0)
+    {
+        /*
+         * p101_feclearexcept() is itself instrumented.  Keep any errno used
+         * by that instrumentation from becoming the native math operation's
+         * apparent failure.
+         */
+        errno = 0;
+    }
     return result;
 }
 
